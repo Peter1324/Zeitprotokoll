@@ -9,9 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:#0a0a0a; --surface:#141414; --surface2:#1e1e1e;
-    --accent:#c8f045; --accent2:#f0c845; --text:#f0ede6;
-    --muted:#555; --danger:#ff4545; --border:#242424;
+    --bg:#0f0f0f; --surface:#181818; --surface2:#202020;
+    --accent:#a8c060; --text:#e8e4dc;
+    --muted:#505050; --danger:#c04040; --border:#282828;
   }
   * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   body { background:var(--bg); color:var(--text); font-family:'DM Mono',monospace; min-height:100dvh; overflow-x:hidden; }
@@ -19,76 +19,76 @@
   .screen.active { display:flex; }
 
   /* HOME */
-  #home { padding:44px 24px 24px; gap:16px; }
-  .home-top h1 { font-family:'Syne',sans-serif; font-size:38px; font-weight:800; letter-spacing:-2px; line-height:1; }
+  #home { padding:48px 24px 28px; gap:16px; }
+  .home-top h1 { font-family:'Syne',sans-serif; font-size:36px; font-weight:800; letter-spacing:-2px; line-height:1; color:var(--text); }
   .home-top h1 span { color:var(--accent); }
   .home-top p { font-size:11px; color:var(--muted); margin-top:6px; text-transform:uppercase; letter-spacing:0.1em; }
 
-  .checkin-card { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:24px; text-align:center; }
-  .next-label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px; }
-  .next-time { font-family:'Syne',sans-serif; font-size:52px; font-weight:800; color:var(--accent); letter-spacing:-3px; line-height:1; }
+  .checkin-card { background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:24px; text-align:center; }
+  .next-label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:8px; }
+  .next-time { font-family:'Syne',sans-serif; font-size:50px; font-weight:800; color:var(--accent); letter-spacing:-3px; line-height:1; }
   .next-sub { font-size:11px; color:var(--muted); margin-top:6px; }
-  .btn-checkin { width:100%; padding:18px; background:var(--accent); color:#0a0a0a; border:none; border-radius:14px; font-family:'Syne',sans-serif; font-size:17px; font-weight:800; cursor:pointer; margin-top:14px; transition:transform 0.1s; }
-  .btn-checkin:active { transform:scale(0.97); }
-  .btn-checkin.pulse { animation:pulse 1.5s infinite; }
-  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(200,240,69,0.4)} 50%{box-shadow:0 0 0 14px rgba(200,240,69,0)} }
+
+  .btn-main { width:100%; padding:17px; background:var(--accent); color:#0f0f0f; border:none; border-radius:12px; font-family:'Syne',sans-serif; font-size:16px; font-weight:800; cursor:pointer; margin-top:14px; transition:transform 0.1s,opacity 0.1s; }
+  .btn-main:active { transform:scale(0.97); opacity:0.9; }
+  .btn-main.pulse { animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(168,192,96,0.3)} 60%{box-shadow:0 0 0 12px rgba(168,192,96,0)} }
 
   .mini-day { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; cursor:pointer; }
   .mini-day-header { display:flex; justify-content:space-between; margin-bottom:10px; }
   .mini-day-title { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; }
   .mini-day-link { font-size:11px; color:var(--accent); }
-  .mini-bar { display:flex; height:18px; border-radius:6px; overflow:hidden; gap:1px; background:var(--bg); }
-  .mini-seg { flex:1; border-radius:2px; }
+  .mini-bar { display:flex; height:16px; border-radius:5px; overflow:hidden; gap:1px; background:var(--bg); }
+  .mini-seg { flex:1; }
 
-  /* Quick stats row */
   .quick-stats { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
   .qs-cell { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 10px; text-align:center; }
-  .qs-num { font-family:'Syne',sans-serif; font-size:24px; font-weight:800; line-height:1; color:var(--accent); }
-  .qs-lbl { font-size:10px; color:var(--muted); margin-top:4px; text-transform:uppercase; letter-spacing:0.08em; }
+  .qs-num { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; line-height:1; color:var(--text); }
+  .qs-lbl { font-size:10px; color:var(--muted); margin-top:5px; text-transform:uppercase; letter-spacing:0.08em; }
 
-  .btn-export { width:100%; padding:12px; background:transparent; color:var(--muted); border:1px solid var(--border); border-radius:12px; font-family:'DM Mono',monospace; font-size:12px; cursor:pointer; }
+  .btn-ghost { width:100%; padding:12px; background:transparent; color:var(--muted); border:1px solid var(--border); border-radius:12px; font-family:'DM Mono',monospace; font-size:12px; cursor:pointer; }
 
   /* ENTRY */
   #entry { padding:0; }
-  .entry-progress { height:3px; background:var(--surface2); flex-shrink:0; }
+  .entry-progress { height:2px; background:var(--surface2); flex-shrink:0; }
   .entry-progress-bar { height:100%; background:var(--accent); transition:width 0.4s cubic-bezier(0.4,0,0.2,1); }
   .entry-content { padding:28px 24px; flex:1; display:flex; flex-direction:column; }
   .entry-step { display:none; flex-direction:column; flex:1; animation:slideIn 0.25s ease; }
   .entry-step.active { display:flex; }
-  @keyframes slideIn { from{opacity:0;transform:translateX(16px)} to{opacity:1;transform:translateX(0)} }
+  @keyframes slideIn { from{opacity:0;transform:translateX(14px)} to{opacity:1;transform:translateX(0)} }
 
   .step-num { font-size:10px; color:var(--muted); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:12px; }
-  .step-num span { color:var(--accent); }
-  .step-q { font-family:'Syne',sans-serif; font-size:24px; font-weight:700; line-height:1.2; margin-bottom:6px; letter-spacing:-0.5px; }
-  .step-hint { font-size:12px; color:var(--muted); margin-bottom:16px; }
+  .step-num b { color:var(--accent); font-weight:400; }
+  .step-q { font-family:'Syne',sans-serif; font-size:22px; font-weight:700; line-height:1.2; margin-bottom:6px; letter-spacing:-0.3px; }
+  .step-hint { font-size:12px; color:var(--muted); margin-bottom:16px; line-height:1.5; }
   .slot-badge { display:inline-flex; align-items:center; gap:6px; background:var(--surface2); border:1px solid var(--border); border-radius:20px; padding:5px 12px; font-size:12px; color:var(--accent); margin-bottom:16px; }
 
   .act-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px; }
-  .act-chip { padding:12px 10px; background:var(--surface); border:1px solid var(--border); border-radius:10px; color:var(--text); font-family:'DM Mono',monospace; font-size:12px; cursor:pointer; display:flex; align-items:center; gap:8px; transition:all 0.12s; }
+  .act-chip { padding:11px 10px; background:var(--surface); border:1px solid var(--border); border-radius:10px; color:var(--text); font-family:'DM Mono',monospace; font-size:12px; cursor:pointer; display:flex; align-items:center; gap:8px; transition:border-color 0.12s,background 0.12s; }
   .act-chip .dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-  .act-chip.sel { border-color:var(--accent); background:rgba(200,240,69,0.07); }
+  .act-chip.sel { border-color:var(--accent); background:rgba(168,192,96,0.08); }
   .act-custom { grid-column:1/-1; padding:10px; background:var(--surface); border:1px dashed var(--border); border-radius:10px; color:var(--muted); font-family:'DM Mono',monospace; font-size:12px; text-align:center; cursor:pointer; }
 
   .choice-group { display:flex; flex-direction:column; gap:8px; }
-  .choice-btn { padding:14px 16px; background:var(--surface); border:1px solid var(--border); border-radius:12px; color:var(--text); font-family:'DM Mono',monospace; cursor:pointer; text-align:left; display:flex; align-items:center; gap:12px; transition:all 0.12s; }
-  .choice-ic { width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:15px; background:var(--surface2); flex-shrink:0; }
+  .choice-btn { padding:14px 15px; background:var(--surface); border:1px solid var(--border); border-radius:11px; color:var(--text); font-family:'DM Mono',monospace; cursor:pointer; text-align:left; display:flex; align-items:center; gap:12px; transition:border-color 0.12s,background 0.12s; }
+  .choice-ic { width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:15px; background:var(--surface2); flex-shrink:0; transition:background 0.12s; }
   .choice-text { display:flex; flex-direction:column; gap:2px; }
   .choice-label { font-size:13px; }
   .choice-sub { font-size:11px; color:var(--muted); }
-  .choice-btn.sel { border-color:var(--accent); background:rgba(200,240,69,0.06); }
+  .choice-btn.sel { border-color:var(--accent); background:rgba(168,192,96,0.06); }
   .choice-btn.sel .choice-ic { background:var(--accent); }
 
   .step-nav { display:flex; gap:10px; margin-top:auto; padding-top:18px; }
-  .btn-back { padding:14px 16px; background:transparent; border:1px solid var(--border); border-radius:12px; color:var(--muted); font-family:'DM Mono',monospace; font-size:14px; cursor:pointer; }
-  .btn-next { flex:1; padding:15px; background:var(--accent); color:#0a0a0a; border:none; border-radius:12px; font-family:'Syne',sans-serif; font-size:15px; font-weight:800; cursor:pointer; }
-  .btn-next:disabled { opacity:0.25; }
+  .btn-back { padding:14px 15px; background:transparent; border:1px solid var(--border); border-radius:11px; color:var(--muted); font-family:'DM Mono',monospace; font-size:14px; cursor:pointer; }
+  .btn-next { flex:1; padding:15px; background:var(--accent); color:#0f0f0f; border:none; border-radius:11px; font-family:'Syne',sans-serif; font-size:15px; font-weight:800; cursor:pointer; transition:opacity 0.1s; }
+  .btn-next:disabled { opacity:0.2; }
 
   /* DAY */
   #day { overflow:hidden; }
   .day-header { padding:20px 20px 0; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
   .day-nav { width:36px; height:36px; background:var(--surface); border:1px solid var(--border); border-radius:10px; color:var(--text); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
   .day-title-wrap { text-align:center; }
-  .day-title { font-family:'Syne',sans-serif; font-size:19px; font-weight:800; letter-spacing:-0.5px; }
+  .day-title { font-family:'Syne',sans-serif; font-size:18px; font-weight:800; letter-spacing:-0.5px; }
   .day-subtitle { font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; margin-top:2px; }
 
   .day-legend { display:flex; flex-wrap:wrap; gap:6px 12px; padding:10px 20px 6px; flex-shrink:0; }
@@ -96,8 +96,7 @@
   .leg-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
 
   .day-summary { padding:8px 20px 10px; flex-shrink:0; border-top:1px solid var(--border); }
-  .day-sum-bar { display:flex; height:7px; border-radius:4px; overflow:hidden; gap:1px; background:var(--surface2); margin-bottom:8px; }
-  .day-sum-seg { }
+  .day-sum-bar { display:flex; height:6px; border-radius:3px; overflow:hidden; gap:1px; background:var(--surface2); margin-bottom:8px; }
   .day-sum-stats { display:flex; gap:14px; }
   .day-sum-item { font-size:11px; color:var(--muted); }
   .day-sum-item span { color:var(--text); }
@@ -110,27 +109,38 @@
   .tl-now-dot { position:absolute; left:34px; width:10px; height:10px; border-radius:50%; background:var(--danger); transform:translateY(-50%); z-index:10; pointer-events:none; }
   .tl-slot { position:absolute; left:48px; right:0; border-radius:6px; overflow:hidden; cursor:pointer; transition:opacity 0.1s; }
   .tl-slot:active { opacity:0.75; }
-  .tl-slot-inner { height:100%; padding:4px 8px; display:flex; flex-direction:column; justify-content:center; }
+  .tl-slot-inner { height:100%; padding:5px 8px; display:flex; flex-direction:column; justify-content:center; }
   .tl-slot-name { font-size:11px; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .tl-slot-tag { font-size:9px; opacity:0.7; margin-top:1px; }
-  /* Untracked slot — shows + to invite tap */
-  .tl-slot.untracked .tl-slot-inner { border:1px dashed #2a2a2a; border-radius:6px; }
-  .tl-slot.untracked:active { opacity:1; }
+  .tl-slot-tag { font-size:9px; opacity:0.65; margin-top:1px; }
 
   /* NAV */
-  .bottom-nav { position:fixed; bottom:0; left:0; right:0; background:rgba(10,10,10,0.96); backdrop-filter:blur(20px); border-top:1px solid var(--border); display:flex; padding:8px 0 max(8px,env(safe-area-inset-bottom)); z-index:100; }
-  .nav-btn { flex:1; display:flex; flex-direction:column; align-items:center; gap:3px; padding:7px; background:none; border:none; color:var(--muted); font-family:'DM Mono',monospace; font-size:9px; cursor:pointer; letter-spacing:0.04em; text-transform:uppercase; }
+  .bottom-nav { position:fixed; bottom:0; left:0; right:0; background:rgba(15,15,15,0.97); backdrop-filter:blur(20px); border-top:1px solid var(--border); display:flex; padding:8px 0 max(8px,env(safe-area-inset-bottom)); z-index:100; }
+  .nav-btn { flex:1; display:flex; flex-direction:column; align-items:center; gap:3px; padding:7px; background:none; border:none; color:var(--muted); font-family:'DM Mono',monospace; font-size:9px; cursor:pointer; letter-spacing:0.04em; text-transform:uppercase; transition:color 0.2s; }
   .nav-btn svg { width:20px; height:20px; }
   .nav-btn.active { color:var(--accent); }
   .screens-wrap { padding-bottom:68px; }
 
-  .toast { position:fixed; top:20px; left:50%; transform:translateX(-50%) translateY(-80px); background:var(--accent); color:#0a0a0a; padding:10px 22px; border-radius:30px; font-family:'Syne',sans-serif; font-size:13px; font-weight:700; transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1); z-index:200; white-space:nowrap; }
+  /* TOAST */
+  .toast { position:fixed; top:20px; left:50%; transform:translateX(-50%) translateY(-80px); background:var(--text); color:var(--bg); padding:10px 22px; border-radius:30px; font-family:'Syne',sans-serif; font-size:13px; font-weight:700; transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1); z-index:200; white-space:nowrap; }
   .toast.show { transform:translateX(-50%) translateY(0); }
 
-  .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); z-index:300; align-items:flex-end; }
+  /* SLOT ACTION SHEET */
+  .sheet { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:300; align-items:flex-end; }
+  .sheet.open { display:flex; }
+  .sheet-box { width:100%; background:var(--surface); border-radius:18px 18px 0 0; padding:20px 20px max(20px,env(safe-area-inset-bottom)); border-top:1px solid var(--border); }
+  .sheet-time { font-size:12px; color:var(--muted); margin-bottom:4px; }
+  .sheet-title { font-family:'Syne',sans-serif; font-size:18px; font-weight:700; margin-bottom:18px; display:flex; align-items:center; gap:10px; }
+  .sheet-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  .sheet-actions { display:flex; flex-direction:column; gap:8px; }
+  .sheet-btn { padding:14px 16px; border-radius:11px; font-family:'DM Mono',monospace; font-size:13px; cursor:pointer; text-align:left; border:1px solid var(--border); background:var(--surface2); color:var(--text); }
+  .sheet-btn.danger { color:var(--danger); border-color:rgba(192,64,64,0.3); background:rgba(192,64,64,0.06); }
+  .sheet-btn.cancel { color:var(--muted); }
+
+  /* CUSTOM OVERLAY */
+  .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:400; align-items:flex-end; }
   .overlay.open { display:flex; }
-  .overlay-box { width:100%; background:var(--surface); border-radius:20px 20px 0 0; padding:24px; padding-bottom:max(24px,env(safe-area-inset-bottom)); border-top:1px solid var(--border); }
-  .overlay-title { font-family:'Syne',sans-serif; font-size:17px; font-weight:700; margin-bottom:14px; }
+  .overlay-box { width:100%; background:var(--surface); border-radius:18px 18px 0 0; padding:22px 22px max(22px,env(safe-area-inset-bottom)); border-top:1px solid var(--border); }
+  .overlay-title { font-family:'Syne',sans-serif; font-size:16px; font-weight:700; margin-bottom:14px; }
   .overlay-input { width:100%; background:var(--surface2); border:1px solid var(--border); border-radius:10px; padding:13px; color:var(--text); font-family:'DM Mono',monospace; font-size:15px; outline:none; margin-bottom:12px; }
   .overlay-input:focus { border-color:var(--accent); }
 </style>
@@ -138,6 +148,28 @@
 <body>
 
 <div class="toast" id="toast"></div>
+
+<!-- Slot action sheet -->
+<div class="sheet" id="sheet">
+  <div class="sheet-box">
+    <div class="sheet-time" id="sheetTime"></div>
+    <div class="sheet-title"><div class="sheet-dot" id="sheetDot"></div><span id="sheetName"></span></div>
+    <div class="sheet-actions">
+      <button class="sheet-btn" onclick="sheetEdit()">✏️ &nbsp;Bearbeiten</button>
+      <button class="sheet-btn danger" onclick="sheetDelete()">🗑 &nbsp;Löschen</button>
+      <button class="sheet-btn cancel" onclick="closeSheet()">Abbrechen</button>
+    </div>
+  </div>
+</div>
+
+<!-- Custom input overlay -->
+<div class="overlay" id="overlay">
+  <div class="overlay-box">
+    <div class="overlay-title">Eigene Aktivität</div>
+    <input type="text" class="overlay-input" id="customInput" placeholder="Was hast du gemacht?" maxlength="60">
+    <button class="btn-main" onclick="confirmCustom()">Übernehmen</button>
+  </div>
+</div>
 
 <nav class="bottom-nav">
   <button class="nav-btn active" id="nav-home" onclick="navigate('home')">
@@ -163,7 +195,7 @@
     <div class="next-label">Nächster Check-In in</div>
     <div class="next-time" id="countdown">00:00</div>
     <div class="next-sub">um <span id="nextSlotTime">—</span> Uhr</div>
-    <button class="btn-checkin" id="checkinBtn" onclick="startEntry(null)">✓ Jetzt einchecken</button>
+    <button class="btn-main" id="checkinBtn" onclick="startEntry(null)">✓ Jetzt einchecken</button>
   </div>
 
   <div class="mini-day" onclick="navigate('day')">
@@ -174,13 +206,13 @@
     <div class="mini-bar" id="miniBar"></div>
   </div>
 
-  <div class="quick-stats" id="quickStats">
+  <div class="quick-stats">
     <div class="qs-cell"><div class="qs-num" id="qs1">—</div><div class="qs-lbl">Wichtig</div></div>
     <div class="qs-cell"><div class="qs-num" id="qs2">—</div><div class="qs-lbl">Geplant</div></div>
     <div class="qs-cell"><div class="qs-num" id="qs3">—</div><div class="qs-lbl">Getrackt</div></div>
   </div>
 
-  <button class="btn-export" onclick="exportCSV()">↓ Daten exportieren (CSV)</button>
+  <button class="btn-ghost" onclick="exportCSV()">↓ Daten exportieren (CSV)</button>
 </div>
 
 <!-- ENTRY -->
@@ -189,22 +221,22 @@
   <div class="entry-content">
 
     <div class="entry-step active" id="step1">
-      <div class="step-num">FRAGE <span>01</span> / 04</div>
+      <div class="step-num">FRAGE <b>01</b> / 04</div>
       <div class="step-q">Was hast du gemacht?</div>
-      <div class="step-hint">Wähle die Hauptaktivität</div>
+      <div class="step-hint">Wähle die Hauptaktivität der letzten 30 Min</div>
       <div class="slot-badge">🕐 <span id="slotLabel">—</span></div>
       <div class="act-grid">
-        <button class="act-chip" onclick="selAct(this,'Tiefarbeit')"><span class="dot" style="background:#c8f045"></span>Tiefarbeit</button>
-        <button class="act-chip" onclick="selAct(this,'E-Mails')"><span class="dot" style="background:#45c8f0"></span>E-Mails</button>
-        <button class="act-chip" onclick="selAct(this,'Meeting')"><span class="dot" style="background:#f0c845"></span>Meeting</button>
-        <button class="act-chip" onclick="selAct(this,'Handy/Social')"><span class="dot" style="background:#f04560"></span>Handy/Social</button>
-        <button class="act-chip" onclick="selAct(this,'Admin/Orga')"><span class="dot" style="background:#a084f0"></span>Admin/Orga</button>
-        <button class="act-chip" onclick="selAct(this,'Pause')"><span class="dot" style="background:#f0a845"></span>Pause</button>
-        <button class="act-chip" onclick="selAct(this,'Lernen')"><span class="dot" style="background:#45f0a8"></span>Lernen</button>
-        <button class="act-chip" onclick="selAct(this,'Gespräch')"><span class="dot" style="background:#f07845"></span>Gespräch</button>
-        <button class="act-chip" onclick="selAct(this,'Schlafen')"><span class="dot" style="background:#6080f0"></span>Schlafen</button>
-        <button class="act-chip" onclick="selAct(this,'Sport')"><span class="dot" style="background:#f060a0"></span>Sport</button>
-        <button class="act-custom" onclick="openCustom()">✏️ Eigene Eingabe…</button>
+        <button class="act-chip" onclick="selAct(this,'Tiefarbeit')"><span class="dot" style="background:#7a9e5a"></span>Tiefarbeit</button>
+        <button class="act-chip" onclick="selAct(this,'E-Mails')"><span class="dot" style="background:#5a8aae"></span>E-Mails</button>
+        <button class="act-chip" onclick="selAct(this,'Meeting')"><span class="dot" style="background:#ae9a5a"></span>Meeting</button>
+        <button class="act-chip" onclick="selAct(this,'Handy/Social')"><span class="dot" style="background:#ae5a5a"></span>Handy/Social</button>
+        <button class="act-chip" onclick="selAct(this,'Admin/Orga')"><span class="dot" style="background:#7a5aae"></span>Admin/Orga</button>
+        <button class="act-chip" onclick="selAct(this,'Pause')"><span class="dot" style="background:#ae7a5a"></span>Pause</button>
+        <button class="act-chip" onclick="selAct(this,'Lernen')"><span class="dot" style="background:#5aae8a"></span>Lernen</button>
+        <button class="act-chip" onclick="selAct(this,'Gespräch')"><span class="dot" style="background:#ae6a5a"></span>Gespräch</button>
+        <button class="act-chip" onclick="selAct(this,'Schlafen')"><span class="dot" style="background:#5a6aae"></span>Schlafen</button>
+        <button class="act-chip" onclick="selAct(this,'Sport')"><span class="dot" style="background:#ae5a8a"></span>Sport</button>
+        <button class="act-custom" onclick="openCustom()">✏️ &nbsp;Eigene Eingabe…</button>
       </div>
       <div class="step-nav">
         <button class="btn-back" onclick="cancelEntry()">✕</button>
@@ -213,7 +245,7 @@
     </div>
 
     <div class="entry-step" id="step2">
-      <div class="step-num">FRAGE <span>02</span> / 04</div>
+      <div class="step-num">FRAGE <b>02</b> / 04</div>
       <div class="step-q">War das wichtig?</div>
       <div class="step-hint">Hat es deinen Top-Prioritäten gedient?</div>
       <div class="choice-group">
@@ -228,7 +260,7 @@
     </div>
 
     <div class="entry-step" id="step3">
-      <div class="step-num">FRAGE <span>03</span> / 04</div>
+      <div class="step-num">FRAGE <b>03</b> / 04</div>
       <div class="step-q">Hat es zu deinen Zielen gepasst?</div>
       <div class="step-hint">Hat es mich meinem großen Ziel näher gebracht?</div>
       <div class="choice-group">
@@ -243,7 +275,7 @@
     </div>
 
     <div class="entry-step" id="step4">
-      <div class="step-num">FRAGE <span>04</span> / 04</div>
+      <div class="step-num">FRAGE <b>04</b> / 04</div>
       <div class="step-q">Geplant oder reaktiv?</div>
       <div class="step-hint">Hatte ich das vorher so vorgesehen?</div>
       <div class="choice-group">
@@ -274,15 +306,7 @@
   <div class="day-scroll"><div class="timeline" id="timeline"></div></div>
 </div>
 
-</div>
-
-<div class="overlay" id="overlay">
-  <div class="overlay-box">
-    <div class="overlay-title">Eigene Aktivität</div>
-    <input type="text" class="overlay-input" id="customInput" placeholder="Was hast du gemacht?" maxlength="60">
-    <button class="btn-checkin" onclick="confirmCustom()">Übernehmen</button>
-  </div>
-</div>
+</div><!-- /screens-wrap -->
 
 <script>
 const SLOT_MIN = 30;
@@ -290,23 +314,32 @@ const SLOT_PX = 48;
 const PX_PER_MIN = SLOT_PX / SLOT_MIN;
 const TOTAL_SLOTS = 48;
 
+// Muted, non-neon colors
 const COLORS = {
-  'Tiefarbeit':'#c8f045','E-Mails':'#45c8f0','Meeting':'#f0c845',
-  'Handy/Social':'#f04560','Admin/Orga':'#a084f0','Pause':'#f0a845',
-  'Lernen':'#45f0a8','Gespräch':'#f07845','Schlafen':'#6080f0','Sport':'#f060a0'
+  'Tiefarbeit':  '#7a9e5a',
+  'E-Mails':     '#5a8aae',
+  'Meeting':     '#ae9a5a',
+  'Handy/Social':'#ae5a5a',
+  'Admin/Orga':  '#7a5aae',
+  'Pause':       '#ae7a5a',
+  'Lernen':      '#5aae8a',
+  'Gespräch':    '#ae6a5a',
+  'Schlafen':    '#5a6aae',
+  'Sport':       '#ae5a8a',
 };
-const LIGHT = ['Tiefarbeit','Lernen','Pause','E-Mails','Gespräch','Sport'];
-function getColor(a) { return COLORS[a] || '#888'; }
-function textColor(a) { return LIGHT.includes(a) ? '#0a0a0a' : '#f0ede6'; }
+// For these colors text should be light
+function getColor(a) { return COLORS[a] || '#606060'; }
+function textColor(a) { return '#f0ede6'; } // all light text on muted colors
 
 let entries = JSON.parse(localStorage.getItem('zt_entries') || '[]');
 let current = {};
 let viewDate = new Date();
-let returnToDay = false; // track if we came from day view
+let returnToDay = false;
+let sheetSlotTs = null; // which slot the action sheet is for
 
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('homeDate').textContent =
-    new Date().toLocaleDateString('de',{weekday:'long',day:'numeric',month:'long'});
+    new Date().toLocaleDateString('de', {weekday:'long', day:'numeric', month:'long'});
   startCountdown();
   renderHome();
 });
@@ -328,48 +361,38 @@ function updateCountdown() {
   diff < 120 ? btn.classList.add('pulse') : btn.classList.remove('pulse');
 }
 
-// Next slot = the upcoming :00 or :30
 function getNextSlot(now) {
   const d = new Date(now);
   if (d.getMinutes() < 30) { d.setMinutes(30,0,0); }
-  else { d.setHours(d.getHours()+1,0,0,0); }
+  else { d.setHours(d.getHours()+1, 0, 0, 0); }
   return d;
 }
 
-// Current slot = the one that just passed (FIXED: rückwirkend)
-// e.g. at 19:32 → slot is 19:00–19:30
-// at 19:02 → slot is 18:30–19:00
+// FIXED: rückwirkend — the slot that just ended
 function getCurrentSlot(now) {
   const d = new Date(now);
   if (d.getMinutes() < 30) {
-    // we're in the :00–:30 window → last slot was :30 of previous hour – :00
-    d.setMinutes(0,0,0);
-    d.setHours(d.getHours() - (d.getMinutes()===0 ? 1 : 0));
-    // simpler: just set to :00 of this hour minus 30 min
-    const base = new Date(now);
-    base.setMinutes(0,0,0);
-    base.setTime(base.getTime() - 30*60000);
-    return base;
+    // between :00 and :30 → last slot was previous :30 to :00
+    d.setMinutes(0, 0, 0);
+    d.setTime(d.getTime() - 30 * 60000);
   } else {
-    // we're in the :30–:00 window → last slot was :00–:30
-    d.setMinutes(0,0,0);
-    return d;
+    // between :30 and :60 → last slot was :00 to :30
+    d.setMinutes(0, 0, 0);
   }
+  return d;
 }
 
-function fmt(d) { return d.toLocaleTimeString('de',{hour:'2-digit',minute:'2-digit'}); }
+function fmt(d) { return d.toLocaleTimeString('de', {hour:'2-digit', minute:'2-digit'}); }
 
-function slotKey(ts) { return Math.floor(ts / (SLOT_MIN*60000)) * (SLOT_MIN*60000); }
-
-// ===== NAV =====
+// ===== NAVIGATION =====
 function navigate(screen) {
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(screen).classList.add('active');
   const nb = document.getElementById('nav-'+screen);
   if (nb) nb.classList.add('active');
-  if (screen==='day') renderDayView();
-  if (screen==='home') renderHome();
+  if (screen === 'day') renderDayView();
+  if (screen === 'home') renderHome();
 }
 
 // ===== HOME =====
@@ -383,11 +406,11 @@ function renderMiniBar() {
   const dayStart = new Date(now); dayStart.setHours(0,0,0,0);
   let html = '';
   for (let i=0; i<TOTAL_SLOTS; i++) {
-    const ts = dayStart.getTime() + i*SLOT_MIN*60000;
+    const ts = dayStart.getTime() + i * SLOT_MIN * 60000;
     const future = ts > now.getTime();
-    const entry = entries.find(e=>e.slotTs===ts);
-    const color = entry ? getColor(entry.activity) : (future ? 'transparent' : '#1a1a1a');
-    const border = future ? '1px solid #242424' : 'none';
+    const entry = entries.find(e => e.slotTs === ts);
+    const color = entry ? getColor(entry.activity) : (future ? 'transparent' : '#1e1e1e');
+    const border = future ? '1px solid #282828' : 'none';
     html += `<div class="mini-seg" style="background:${color};border:${border}"></div>`;
   }
   document.getElementById('miniBar').innerHTML = html;
@@ -396,48 +419,49 @@ function renderMiniBar() {
 function renderQuickStats() {
   const now = new Date();
   const dayStart = new Date(now); dayStart.setHours(0,0,0,0);
-  const todayEntries = entries.filter(e => e.slotTs >= dayStart.getTime() && e.slotTs < dayStart.getTime()+86400000);
+  const todayEntries = entries.filter(e =>
+    e.slotTs >= dayStart.getTime() && e.slotTs < dayStart.getTime() + 86400000
+  );
   const n = todayEntries.length;
   if (!n) {
-    document.getElementById('qs1').textContent = '—';
-    document.getElementById('qs2').textContent = '—';
-    document.getElementById('qs3').textContent = '0h';
+    ['qs1','qs2','qs3'].forEach(id => document.getElementById(id).textContent = '—');
     return;
   }
   const imp = Math.round(todayEntries.filter(e=>e.important==='ja').length/n*100);
   const plan = Math.round(todayEntries.filter(e=>e.planned==='geplant').length/n*100);
-  const hours = Math.round(n*SLOT_MIN/60*10)/10;
-  document.getElementById('qs1').textContent = imp+'%';
-  document.getElementById('qs2').textContent = plan+'%';
-  document.getElementById('qs3').textContent = hours+'h';
+  const hours = Math.round(n * SLOT_MIN / 60 * 10) / 10;
+  document.getElementById('qs1').textContent = imp + '%';
+  document.getElementById('qs2').textContent = plan + '%';
+  document.getElementById('qs3').textContent = hours + 'h';
 }
 
 // ===== ENTRY =====
-// slotTs: specific timestamp to fill (for retroactive), or null for current slot
 function startEntry(slotTs) {
   const now = new Date();
   const slot = slotTs !== null ? new Date(slotTs) : getCurrentSlot(now);
-  const slotEnd = new Date(slot.getTime() + SLOT_MIN*60000);
-
+  const slotEnd = new Date(slot.getTime() + SLOT_MIN * 60000);
   current = { activity:'', important:'', goals:'', planned:'', slotTs: slot.getTime() };
   document.getElementById('slotLabel').textContent = `${fmt(slot)} – ${fmt(slotEnd)}`;
 
-  // Pre-fill if editing existing
-  const existing = entries.find(e=>e.slotTs===slot.getTime());
-  if (existing) current = {...existing};
-
-  document.querySelectorAll('.act-chip').forEach(c=>c.classList.remove('sel'));
-  document.querySelectorAll('.choice-btn').forEach(c=>c.classList.remove('sel'));
-  document.querySelectorAll('.btn-next').forEach(b=>b.disabled=true);
-
-  // Re-highlight if editing
+  // Pre-fill if editing
+  const existing = entries.find(e => e.slotTs === slot.getTime());
   if (existing) {
-    const chip = [...document.querySelectorAll('.act-chip')].find(c=>c.textContent.trim()===existing.activity);
-    if (chip) { chip.classList.add('sel'); document.getElementById('btn1').disabled=false; }
+    current = {...existing};
+  }
+
+  document.querySelectorAll('.act-chip').forEach(c => c.classList.remove('sel'));
+  document.querySelectorAll('.choice-btn').forEach(c => c.classList.remove('sel'));
+  document.querySelectorAll('.btn-next').forEach(b => b.disabled = true);
+
+  if (existing) {
+    const chip = [...document.querySelectorAll('.act-chip')].find(c =>
+      c.textContent.trim().startsWith(existing.activity)
+    );
+    if (chip) { chip.classList.add('sel'); document.getElementById('btn1').disabled = false; }
   }
 
   goStep(1);
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('entry').classList.add('active');
 }
 
@@ -447,107 +471,148 @@ function cancelEntry() {
 }
 
 function goStep(n) {
-  document.querySelectorAll('.entry-step').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.entry-step').forEach(s => s.classList.remove('active'));
   document.getElementById('step'+n).classList.add('active');
-  document.getElementById('progressBar').style.width = (n*25)+'%';
+  document.getElementById('progressBar').style.width = (n*25) + '%';
 }
 
 function selAct(el, val) {
-  document.querySelectorAll('.act-chip').forEach(c=>c.classList.remove('sel'));
-  el.classList.add('sel'); current.activity=val;
-  document.getElementById('btn1').disabled=false;
+  document.querySelectorAll('.act-chip').forEach(c => c.classList.remove('sel'));
+  el.classList.add('sel');
+  current.activity = val;
+  document.getElementById('btn1').disabled = false;
 }
 
 function selChoice(el, field, val) {
-  el.closest('.choice-group').querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('sel'));
-  el.classList.add('sel'); current[field]=val;
-  const map={important:'btn2',goals:'btn3',planned:'btn4'};
-  document.getElementById(map[field]).disabled=false;
+  el.closest('.choice-group').querySelectorAll('.choice-btn').forEach(b => b.classList.remove('sel'));
+  el.classList.add('sel');
+  current[field] = val;
+  const map = {important:'btn2', goals:'btn3', planned:'btn4'};
+  document.getElementById(map[field]).disabled = false;
 }
 
 function saveEntry() {
-  const idx = entries.findIndex(e=>e.slotTs===current.slotTs);
-  const entry = {...current, ts:Date.now(), id: idx>=0 ? entries[idx].id : Math.random().toString(36).slice(2)};
-  if (idx>=0) entries[idx]=entry; else entries.unshift(entry);
+  const idx = entries.findIndex(e => e.slotTs === current.slotTs);
+  const entry = {...current, ts: Date.now(), id: idx>=0 ? entries[idx].id : Math.random().toString(36).slice(2)};
+  if (idx >= 0) entries[idx] = entry;
+  else entries.unshift(entry);
   localStorage.setItem('zt_entries', JSON.stringify(entries));
-  if (returnToDay) { returnToDay=false; navigate('day'); }
+  if (returnToDay) { returnToDay = false; navigate('day'); }
   else navigate('home');
   showToast('Eingetragen ✓');
 }
 
+// ===== SLOT ACTION SHEET =====
+function openSheet(slotTs) {
+  sheetSlotTs = slotTs;
+  const entry = entries.find(e => e.slotTs === slotTs);
+  if (!entry) return;
+  const slotDate = new Date(slotTs);
+  const slotEnd = new Date(slotTs + SLOT_MIN*60000);
+  document.getElementById('sheetTime').textContent = `${fmt(slotDate)} – ${fmt(slotEnd)}`;
+  document.getElementById('sheetName').textContent = entry.activity;
+  document.getElementById('sheetDot').style.background = getColor(entry.activity);
+  document.getElementById('sheet').classList.add('open');
+}
+
+function closeSheet() {
+  document.getElementById('sheet').classList.remove('open');
+  sheetSlotTs = null;
+}
+
+function sheetEdit() {
+  closeSheet();
+  returnToDay = true;
+  startEntry(sheetSlotTs);
+}
+
+function sheetDelete() {
+  if (sheetSlotTs === null) return;
+  entries = entries.filter(e => e.slotTs !== sheetSlotTs);
+  localStorage.setItem('zt_entries', JSON.stringify(entries));
+  closeSheet();
+  renderDayView();
+  showToast('Eintrag gelöscht');
+}
+
+document.getElementById('sheet').addEventListener('click', e => {
+  if (e.target === document.getElementById('sheet')) closeSheet();
+});
+
 // ===== DAY VIEW =====
 function changeDay(dir) {
-  viewDate=new Date(viewDate); viewDate.setDate(viewDate.getDate()+dir);
+  viewDate = new Date(viewDate);
+  viewDate.setDate(viewDate.getDate() + dir);
   renderDayView();
 }
 
 function renderDayView() {
   const now = new Date();
-  const isToday = viewDate.toDateString()===now.toDateString();
+  const isToday = viewDate.toDateString() === now.toDateString();
   document.getElementById('dayTitle').textContent = isToday ? 'Heute' :
-    viewDate.toLocaleDateString('de',{weekday:'long',day:'numeric',month:'long'});
+    viewDate.toLocaleDateString('de', {weekday:'long', day:'numeric', month:'long'});
   document.getElementById('daySubtitle').textContent =
-    viewDate.toLocaleDateString('de',{day:'numeric',month:'long',year:'numeric'});
+    viewDate.toLocaleDateString('de', {day:'numeric', month:'long', year:'numeric'});
 
   const dayStart = new Date(viewDate); dayStart.setHours(0,0,0,0);
-  const totalPx = TOTAL_SLOTS*SLOT_PX;
   const tl = document.getElementById('timeline');
-  tl.style.height = totalPx+'px';
+  tl.style.height = (TOTAL_SLOTS * SLOT_PX) + 'px';
 
   let html = '';
 
   // Hour lines
   for (let h=0; h<=24; h++) {
-    const top = h*2*SLOT_PX;
+    const top = h * 2 * SLOT_PX;
     html += `<div class="tl-line" style="top:${top}px"></div>`;
-    if (h<24) html += `<div class="tl-label" style="top:${top}px">${h.toString().padStart(2,'0')}:00</div>`;
+    if (h < 24) html += `<div class="tl-label" style="top:${top}px">${h.toString().padStart(2,'0')}:00</div>`;
   }
 
-  // Slots — ALL past slots shown, future slots hidden
+  // Slots
   for (let i=0; i<TOTAL_SLOTS; i++) {
-    const slotTs = dayStart.getTime() + i*SLOT_MIN*60000;
+    const slotTs = dayStart.getTime() + i * SLOT_MIN * 60000;
     const slotDate = new Date(slotTs);
     const isFuture = isToday && slotTs > now.getTime();
     if (isFuture) continue;
 
-    const entry = entries.find(e=>e.slotTs===slotTs);
-    const top = i*SLOT_PX;
-    const h = SLOT_PX-2;
+    const entry = entries.find(e => e.slotTs === slotTs);
+    const top = i * SLOT_PX;
+    const h = SLOT_PX - 2;
 
     if (entry) {
       const color = getColor(entry.activity);
       const tc = textColor(entry.activity);
       let tag = '';
-      if (entry.planned==='reaktiv') tag+=`<div class="tl-slot-tag" style="color:${tc}">⚡ Reaktiv</div>`;
-      if (entry.important==='nein') tag+=`<div class="tl-slot-tag" style="color:${tc}">✗ Unwichtig</div>`;
-      html += `<div class="tl-slot" style="top:${top}px;height:${h}px" onclick="editSlot(${slotTs})">
+      if (entry.planned === 'reaktiv') tag += `<div class="tl-slot-tag" style="color:${tc}">⚡ Reaktiv</div>`;
+      if (entry.important === 'nein') tag += `<div class="tl-slot-tag" style="color:${tc}">✗ Unwichtig</div>`;
+      // Tap → action sheet
+      html += `<div class="tl-slot" style="top:${top}px;height:${h}px" onclick="openSheet(${slotTs})">
         <div class="tl-slot-inner" style="background:${color}">
           <div class="tl-slot-name" style="color:${tc}">${entry.activity}</div>${tag}
         </div></div>`;
     } else {
-      // Untracked — tappable to fill retroactively
-      const slotEnd = new Date(slotTs+SLOT_MIN*60000);
-      html += `<div class="tl-slot untracked" style="top:${top}px;height:${h}px" onclick="fillSlot(${slotTs})">
-        <div class="tl-slot-inner" style="background:#111">
-          <div class="tl-slot-name" style="color:#333;font-size:10px">${fmt(slotDate)} – ${fmt(slotEnd)}</div>
+      // Untracked — tap to fill
+      const slotEnd = new Date(slotTs + SLOT_MIN*60000);
+      html += `<div class="tl-slot" style="top:${top}px;height:${h}px;opacity:1" onclick="fillSlot(${slotTs})">
+        <div class="tl-slot-inner" style="background:#161616;border:1px dashed #2a2a2a;border-radius:6px">
+          <div class="tl-slot-name" style="color:#303030;font-size:10px">${fmt(slotDate)} – ${fmt(slotEnd)}</div>
         </div></div>`;
     }
   }
 
   // Now line
   if (isToday) {
-    const nowMin = now.getHours()*60+now.getMinutes();
-    const top = nowMin*PX_PER_MIN;
+    const nowMin = now.getHours()*60 + now.getMinutes();
+    const top = nowMin * PX_PER_MIN;
     html += `<div class="tl-now" style="top:${top}px"></div><div class="tl-now-dot" style="top:${top}px"></div>`;
   }
 
   tl.innerHTML = html;
 
-  setTimeout(()=>{
+  setTimeout(() => {
     const scr = tl.parentElement;
-    if (isToday) { scr.scrollTop = Math.max(0,(now.getHours()*60+now.getMinutes())*PX_PER_MIN-120); }
-    else { scr.scrollTop=0; }
-  },50);
+    if (isToday) scr.scrollTop = Math.max(0, (now.getHours()*60 + now.getMinutes()) * PX_PER_MIN - 120);
+    else scr.scrollTop = 0;
+  }, 50);
 
   renderDayLegend(dayStart);
   renderDaySummary(dayStart, isToday);
@@ -558,40 +623,38 @@ function fillSlot(slotTs) {
   startEntry(slotTs);
 }
 
-function editSlot(slotTs) {
-  returnToDay = true;
-  startEntry(slotTs);
-}
-
 function renderDayLegend(dayStart) {
   const used = {};
-  for (let i=0;i<TOTAL_SLOTS;i++) {
-    const e=entries.find(e=>e.slotTs===dayStart.getTime()+i*SLOT_MIN*60000);
-    if (e) used[e.activity]=true;
+  for (let i=0; i<TOTAL_SLOTS; i++) {
+    const e = entries.find(e => e.slotTs === dayStart.getTime() + i*SLOT_MIN*60000);
+    if (e) used[e.activity] = true;
   }
   document.getElementById('dayLegend').innerHTML =
-    Object.keys(used).map(a=>`<div class="leg-item"><div class="leg-dot" style="background:${getColor(a)}"></div>${a}</div>`).join('')+
-    `<div class="leg-item"><div class="leg-dot" style="background:#1a1a1a;border:1px solid #333"></div>Ungetrackt</div>`;
+    Object.keys(used).map(a =>
+      `<div class="leg-item"><div class="leg-dot" style="background:${getColor(a)}"></div>${a}</div>`
+    ).join('') +
+    `<div class="leg-item"><div class="leg-dot" style="background:#1e1e1e;border:1px solid #333"></div>Ungetrackt</div>`;
 }
 
 function renderDaySummary(dayStart, isToday) {
   const now = new Date();
-  const actMins={};
-  let tracked=0, untracked=0;
-  for (let i=0;i<TOTAL_SLOTS;i++) {
-    const slotTs=dayStart.getTime()+i*SLOT_MIN*60000;
-    if (isToday && slotTs>now.getTime()) continue;
-    const e=entries.find(e=>e.slotTs===slotTs);
-    if (e){actMins[e.activity]=(actMins[e.activity]||0)+SLOT_MIN;tracked++;}
+  const actMins = {};
+  let tracked = 0, untracked = 0;
+  for (let i=0; i<TOTAL_SLOTS; i++) {
+    const slotTs = dayStart.getTime() + i*SLOT_MIN*60000;
+    if (isToday && slotTs > now.getTime()) continue;
+    const e = entries.find(e => e.slotTs === slotTs);
+    if (e) { actMins[e.activity] = (actMins[e.activity]||0) + SLOT_MIN; tracked++; }
     else untracked++;
   }
-  const total=tracked+untracked;
-  if(!total){document.getElementById('daySummary').innerHTML='';return;}
-  const segs=Object.entries(actMins).map(([a,m])=>`<div class="day-sum-seg" style="flex:${m};background:${getColor(a)}"></div>`).join('');
-  const uSeg=untracked?`<div class="day-sum-seg" style="flex:${untracked*SLOT_MIN};background:#1a1a1a"></div>`:'';
-  const th=Math.round(tracked*SLOT_MIN/60*10)/10;
-  const uh=Math.round(untracked*SLOT_MIN/60*10)/10;
-  document.getElementById('daySummary').innerHTML=`
+  const total = tracked + untracked;
+  if (!total) { document.getElementById('daySummary').innerHTML = ''; return; }
+  const segs = Object.entries(actMins).map(([a,m]) =>
+    `<div class="day-sum-seg" style="flex:${m};background:${getColor(a)}"></div>`).join('');
+  const uSeg = untracked ? `<div class="day-sum-seg" style="flex:${untracked*SLOT_MIN};background:#1e1e1e"></div>` : '';
+  const th = Math.round(tracked*SLOT_MIN/60*10)/10;
+  const uh = Math.round(untracked*SLOT_MIN/60*10)/10;
+  document.getElementById('daySummary').innerHTML = `
     <div class="day-sum-bar">${segs}${uSeg}</div>
     <div class="day-sum-stats">
       <div class="day-sum-item">Getrackt: <span>${th}h</span></div>
@@ -601,36 +664,48 @@ function renderDaySummary(dayStart, isToday) {
 }
 
 // ===== CUSTOM =====
-function openCustom(){document.getElementById('overlay').classList.add('open');setTimeout(()=>document.getElementById('customInput').focus(),100);}
-function confirmCustom(){
-  const val=document.getElementById('customInput').value.trim();
-  if(!val)return;
-  document.querySelectorAll('.act-chip').forEach(c=>c.classList.remove('sel'));
-  current.activity=val;document.getElementById('btn1').disabled=false;
-  document.getElementById('customInput').value='';document.getElementById('overlay').classList.remove('open');
+function openCustom() {
+  document.getElementById('overlay').classList.add('open');
+  setTimeout(() => document.getElementById('customInput').focus(), 100);
 }
-document.getElementById('overlay').addEventListener('click',e=>{if(e.target===document.getElementById('overlay'))document.getElementById('overlay').classList.remove('open');});
+function confirmCustom() {
+  const val = document.getElementById('customInput').value.trim();
+  if (!val) return;
+  document.querySelectorAll('.act-chip').forEach(c => c.classList.remove('sel'));
+  current.activity = val;
+  document.getElementById('btn1').disabled = false;
+  document.getElementById('customInput').value = '';
+  document.getElementById('overlay').classList.remove('open');
+}
+document.getElementById('overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('overlay')) document.getElementById('overlay').classList.remove('open');
+});
 
 // ===== EXPORT =====
-function exportCSV(){
-  if(!entries.length){showToast('Keine Daten');return;}
-  const header=['Datum','Slot','Aktivität','Wichtig','Ziel-fit','Geplant/Reaktiv'];
-  const rows=entries.map(e=>{
-    const d=new Date(e.slotTs||e.ts);
-    return[d.toLocaleDateString('de'),fmt(d),e.activity,e.important,e.goals,e.planned].map(v=>`"${v}"`).join(',');
+function exportCSV() {
+  if (!entries.length) { showToast('Keine Daten'); return; }
+  const header = ['Datum','Slot','Aktivität','Wichtig','Ziel-fit','Geplant/Reaktiv'];
+  const rows = entries.map(e => {
+    const d = new Date(e.slotTs || e.ts);
+    return [d.toLocaleDateString('de'), fmt(d), e.activity, e.important, e.goals, e.planned]
+      .map(v => `"${v}"`).join(',');
   });
-  const csv=[header.join(','),...rows].join('\n');
-  const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;a.download=`Zeitprotokoll_${new Date().toLocaleDateString('de',{month:'long',year:'numeric'})}.csv`;
-  a.click();URL.revokeObjectURL(url);showToast('CSV exportiert ✓');
+  const csv = [header.join(','), ...rows].join('\n');
+  const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `Zeitprotokoll_${new Date().toLocaleDateString('de',{month:'long',year:'numeric'})}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('CSV exportiert ✓');
 }
 
 // ===== TOAST =====
-function showToast(msg){
-  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2400);
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2400);
 }
 </script>
 </body>
