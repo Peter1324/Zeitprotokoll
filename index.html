@@ -470,8 +470,9 @@ function renderEntryUI() {
       <div class="activity-row-mins">
         <div class="mins-val" id="minsVal${idx}">${act.minutes}</div>
         <div class="mins-unit">min</div>
-        <input type="range" min="5" max="${maxForThis}" step="5" value="${act.minutes}"
-          oninput="updateMins(${idx}, this.value)" style="flex:1">
+        <input type="range" min="1" max="${maxForThis}" step="1" value="${act.minutes}"
+          oninput="updateMins(${idx}, this.value)" id="slider${idx}" style="flex:1" ${act.locked?"disabled":""}>
+        <button onclick="toggleLock(${idx})" style="background:none;border:1px solid var(--border);border-radius:8px;padding:4px 8px;color:${act.locked?"var(--accent)":"var(--muted)"};font-size:13px;cursor:pointer;flex-shrink:0">${act.locked?"🔒":"🔓"}</button>
       </div>
       <div class="activity-questions">
         <div class="q-row">
@@ -512,12 +513,18 @@ function renderEntryUI() {
 }
 
 function updateMins(idx, val) {
+  if (entryActivities[idx].locked) return;
   const newVal = parseInt(val);
   const oldVal = entryActivities[idx].minutes;
   const diff = newVal - oldVal;
   if (minsLeft() - diff < 0) return; // can't exceed 30
   entryActivities[idx].minutes = newVal;
   document.getElementById('minsVal'+idx).textContent = newVal;
+  renderEntryUI();
+}
+
+function toggleLock(idx) {
+  entryActivities[idx].locked = !entryActivities[idx].locked;
   renderEntryUI();
 }
 
